@@ -50,11 +50,11 @@ def mars_news(browser):
 
         # Use the parent element to find the first `a` tag and save it as `news_title`
         news_title = slide_elem.find("div", class_='content_title').get_text()
-        news_title
+        
 
         # Use the parent element to find the paragraph text
         news_p = slide_elem.find('div', class_="article_teaser_body").get_text()
-        news_p
+        
 
     except AttributeError:
         return None, None
@@ -132,6 +132,7 @@ def hemispheres(browser):
         hemisphere_image_urls.append(hemisphere)
     
         browser.back
+    return hemisphere_image_urls
 
 def scrape_hemisphere(html_text):
     hemi_soup = soup(html_text, "html.parser")
