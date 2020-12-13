@@ -8,6 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import datetime as dt
 
+
 def scrape_all():
      # Initiate headless driver for deployment
     # Setup splinter
@@ -115,11 +116,11 @@ def hemispheres(browser):
     url = (
     "https://astrogeology.usgs.gov/search/results?=hemisphere+enhanced&k1=target&v1=Mars"
 )
-    links = browser.find_by_css("a.product-item h3")
+    #links = browser.find_by_css("a.product-item h3")
     browser.visit(url)
     hemisphere_image_urls = []
 
-    for i in range(len(links)):
+    for i in range(4):
         hemisphere = {}
         browser.visit(url)
         browser.find_by_css("a.product-item h3")[i].click()
@@ -156,7 +157,3 @@ if __name__ == "__main__":
 
     # If running as script, print scraped data
     print(scrape_all())
-
-
-
-
